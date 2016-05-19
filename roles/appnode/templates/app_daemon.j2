@@ -1,0 +1,14 @@
+description "Sample_app"
+author  "Tuan Luong <tuantuluong@gmail.com>"
+
+start on runlevel [2345]
+stop on runlevel [0156]
+
+script
+   chdir /vagrant
+   exec /usr/bin/python /vagrant/app.py
+
+end script
+
+respawn limit 10 10
+

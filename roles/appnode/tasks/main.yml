@@ -1,0 +1,20 @@
+---
+
+- name: Copy daemon file of app
+  template:
+    src: 'app_daemon.j2'
+    dest: '/etc/init/app_script.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  register: result
+
+- name: Debug
+  debug: var=result
+
+- name: Reload init configuration
+  command: initctl reload-configuration
+
+- name: Runs app
+  command: initctl start app_script
+

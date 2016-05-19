@@ -1,0 +1,20 @@
+server {
+
+  listen 80;
+  server_name load_balancer;
+
+  location / {
+     proxy_pass  http://appcluster;
+  }
+
+}
+
+upstream appcluster {
+   server 192.168.42.15:5000;
+   server 192.168.42.16:5000;
+}
+
+
+
+
+

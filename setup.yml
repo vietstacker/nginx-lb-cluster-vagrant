@@ -1,0 +1,6 @@
+---
+
+- name: Setup nginx on load balancer
+  hosts: localhost
+  roles:
+    - role: nginx 
